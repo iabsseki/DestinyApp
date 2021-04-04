@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - 10/13/2020 - Destiny App with Vue.js - HW</title>
+  <link href="https://fonts.googleapis.com/css2?family=Alatsi&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="destiny-app">
+
+  <!-- Loops through each character in the cards array and creates each div as below -->
+  <div class="spacer" v-for="character in cards">
+    <div class="card" v-bind:class="character.color">
+
+      <!-- Assigning image source from array img url -->
+      <img v-bind:src="character.img">
+
+      <!-- Writing health # to health div -->
+      <div class="health">{{character.health}}</div>
+
+      <!-- Adds class based on if rarity is true or not true. Then, writes setNumber to div -->
+      <div class="rarity" v-bind:class="{rare:character.rarity, legendary:!character.rarity}">{{character.setNumber}}</div>
+
+      <!-- Writing character name to div -->
+      <div class="name">{{character.name}}</div>
+
+      <!-- Adds hero or villain class based on affl. Then, writes affiliation to div -->
+      <div class="affl" v-bind:class="character.affl">{{character.affl}}</div>
+
+    </div>
+  </div>
+
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
